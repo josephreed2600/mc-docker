@@ -9,6 +9,7 @@ WORKDIR /app/storage
 RUN echo eula=true > eula.txt
 COPY --from=MCProvider /app/minecraft_server.jar /app/minecraft_server.jar
 COPY ./server.properties .
+VOLUME /app/storage
 CMD java -Xms1G -Xmx4G -jar /app/minecraft_server.jar nogui
 
 EXPOSE 25565 25575

@@ -1,11 +1,11 @@
 services:
   minecraft-server:
-    image: runroe/minecraft-server
-    tty: true
+		image: jtreed/mcserver:latest
     volumes:
       - minecraft-world:/app/storage
     ports: 
       - 25565:25565
+      - 25575:25575
     stop_grace_period: 1m
 
 volumes:
