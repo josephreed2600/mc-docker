@@ -1,0 +1,12 @@
+services:
+  minecraft-server:
+    image: runroe/minecraft-server
+    tty: true
+    volumes:
+      - minecraft-world:/app/storage
+    ports: 
+      - 25565:25565
+    stop_grace_period: 1m
+
+volumes:
+  minecraft-world:
