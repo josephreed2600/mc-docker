@@ -1,6 +1,6 @@
 services:
   minecraft-server:
-		image: jtreed/mcserver:latest
+    image: jtreed/mcserver:latest
     volumes:
       - minecraft-world:/app/storage
     ports: 

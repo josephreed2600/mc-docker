@@ -1,6 +1,6 @@
 FROM alpine:3.15.0 AS MCProvider
-WORKDIR /app
 RUN apk --no-cache update && apk --no-cache add wget
+WORKDIR /app
 RUN wget https://launcher.mojang.com/v1/objects/125e5adf40c659fd3bce3e66e67a16bb49ecc1b9/server.jar -O minecraft_server.jar
 
 FROM debian
@@ -10,6 +10,6 @@ RUN echo eula=true > eula.txt
 COPY --from=MCProvider /app/minecraft_server.jar /app/minecraft_server.jar
 COPY ./server.properties .
 VOLUME /app/storage
-CMD java -Xms1G -Xmx4G -jar /app/minecraft_server.jar nogui
+CMD ["/usr/bin/java", "-Xms1G", "-Xmx4G", "-jar", "/app/minecraft_server.jar", "nogui"]
 
 EXPOSE 25565 25575
